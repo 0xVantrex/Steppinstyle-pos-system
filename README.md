@@ -1,70 +1,169 @@
-# Getting Started with Create React App
+Steppinstyle POS System
+A modern, responsive Point of Sale (POS) system built with React for shoe stores. This application helps manage inventory, process sales, and generate daily sales reports.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Features
+🛍️ Sales Management
+Process shoe sales with size selection
 
-## Available Scripts
+Multiple payment methods (Cash, M-Pesa, Card)
 
-In the project directory, you can run:
+Real-time inventory updates
 
-### `npm start`
+Sales summary and confirmation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+📦 Inventory Management
+Add new shoe products with detailed size inventory (6-12 including half sizes)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Edit stock quantities in real-time
 
-### `npm test`
+Delete products with confirmation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Visual stock indicators (red for out-of-stock, yellow for low stock, green for available)
 
-### `npm run build`
+📊 Reports & Analytics
+Daily sales tracking
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Revenue calculation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Export sales data to CSV
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Payment method breakdown
 
-### `npm run eject`
+💾 Data Persistence
+Automatic local storage saving
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Data persists between browser sessions
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Getting Started
+Prerequisites
+Node.js (v14 or higher)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+npm or yarn
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Installation
+Clone or download the project files
 
-## Learn More
+Install dependencies:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+bash
+npm install
+Start the development server:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+bash
+npm start
+Open http://localhost:3000 to view the app in your browser
 
-### Code Splitting
+Usage
+Making a Sale
+Navigate to the "Make Sale" tab
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Select a product from the dropdown
 
-### Analyzing the Bundle Size
+Choose an available size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Adjust quantity using +/- buttons or input
 
-### Making a Progressive Web App
+Select payment method
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Review the sale summary
 
-### Advanced Configuration
+Click "COMPLETE SALE" to finalize
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Managing Inventory
+Go to the "Manage Inventory" tab
 
-### Deployment
+Click "Add New Product" to create new items
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Fill in product name, price, and stock quantities for each size
 
-### `npm run build` fails to minify
+Click the edit icon (✏️) next to any product to modify stock levels
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Click the trash icon (🗑️) to remove a product (with confirmation)
+
+Generating Reports
+Visit the "Sales Reports" tab
+
+View today's sales in a detailed table
+
+Click "Export CSV" to download today's sales data
+
+Data Structure
+Products
+javascript
+{
+  id: Number,
+  name: String,
+  price: Number,
+  sizes: {
+    6: Number, 6.5: Number, 7: Number, 7.5: Number,
+    8: Number, 8.5: Number, 9: Number, 9.5: Number,
+    10: Number, 10.5: Number, 11: Number, 11.5: Number,
+    12: Number
+  },
+  dateAdded: String (ISO date)
+}
+Sales
+javascript
+{
+  id: Number,
+  product: String,
+  size: String,
+  quantity: Number,
+  unitPrice: Number,
+  total: Number,
+  paymentMethod: String,
+  timestamp: String (ISO date)
+}
+Browser Compatibility
+This app works in all modern browsers that support:
+
+ES6+ JavaScript features
+
+CSS Grid and Flexbox
+
+Local Storage API
+
+Technologies Used
+React 18 with Hooks (useState, useEffect)
+
+Lucide React (for icons)
+
+Tailwind CSS (for styling)
+
+Local Storage (for data persistence)
+
+Customization
+You can easily customize:
+
+Color scheme by modifying Tailwind classes
+
+Shoe sizes by updating the sizes object in the code
+
+Currency symbol by replacing the "$" throughout the code
+
+Payment methods by updating the options in the select input
+
+Troubleshooting
+If data isn't persisting, check if your browser allows local storage
+
+If the app doesn't load, ensure all dependencies are properly installed
+
+Future Enhancements
+Potential improvements for this system:
+
+User authentication
+
+Backend integration
+
+Advanced reporting with charts
+
+Barcode scanning support
+
+Customer management
+
+Multi-day sales reports
+
+Inventory alerts for low stock
+
+License
+This project is open source and available under the MIT License.
